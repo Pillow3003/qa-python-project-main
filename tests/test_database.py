@@ -4,13 +4,11 @@ from praktikum.ingredient import Ingredient
 from praktikum.ingredient_types import INGREDIENT_TYPE_SAUCE, INGREDIENT_TYPE_FILLING
 
 
-
-class TestDatabase:
+class TestDatabaseBuns:
 
     def setup_method(self):
         self.db = Database()
         self.buns = self.db.available_buns()
-        self.ingredients = self.db.available_ingredients()
 
     def test_available_buns_returns_list(self):
         assert isinstance(self.buns, list)
@@ -27,6 +25,12 @@ class TestDatabase:
     def test_last_bun_price(self):
         assert self.buns[-1].get_price() == 300
 
+
+class TestDatabaseIngredients:
+
+    def setup_method(self):
+        self.db = Database()
+        self.ingredients = self.db.available_ingredients()
 
     def test_available_ingredients_returns_list(self):
         assert isinstance(self.ingredients, list)
